@@ -86,6 +86,7 @@ clean:
 	rm -f $(OBJ_FILES)
 	rm -f $(SKEL_DIST_DIR)
 	rm -f $(SKEL_DIST_DIR).tar.bz2
+	rm tp1
 
 skel:
 	rm -rf $(SKEL_DIST_DIR)

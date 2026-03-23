@@ -24,6 +24,7 @@ namespace tifo {
   gray8_image* rgb_to_gray(rgb24_image& colored);
   rgb24_image* gray_to_rgb(gray8_image& gray);
   gray8_image* equalize_histogram(gray8_image& img);
+  rgb24_image rgb_histogram(rgb24_image& img);
 }
 
 #endif
