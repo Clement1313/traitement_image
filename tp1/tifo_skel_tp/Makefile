@@ -15,7 +15,7 @@ CPP_FILES =  $(SKEL_CPP_FILES)
 H_FILES =  $(SKEL_HH_FILES)
 OBJ_FILES = $(CPP_FILES:.cpp=.o)
 
-CXX_FLAGS += -Wall -Wextra -O3 -g -std=c++20
+CXX_FLAGS += -Wall -Wextra -O3 -g -std=c++20 -fsanitize=address
 CXX_FLAGS += -lm
 CXX_FLAGS += -march=native
 #CXX_FLAGS += -fopt-info-vec-optimized -fopt-info-vec-missed -ftree-vectorize
