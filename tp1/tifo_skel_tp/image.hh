@@ -23,6 +23,21 @@ namespace tifo {
     typedef uint8_t* GRAY8 alignas(TL_IMAGE_ALIGNMENT);
     typedef uint8_t* RGB8 alignas(TL_IMAGE_ALIGNMENT) ;
 
+
+struct hls {
+    uint8_t h;
+    uint8_t l;
+    uint8_t s;
+    hls(uint8_t h, uint8_t l, uint8_t s): h(h), l(l), s(s) {}
+};
+
+struct hsv {
+    uint8_t h;
+    uint8_t s;
+    uint8_t v;
+    hsv(uint8_t h, uint8_t s, uint8_t v): h(h), s(s), v(v) {}
+};
+
 /**
  * Gray scale image with pixels on 8 bits.
  * @author J. Fabrizio
