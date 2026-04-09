@@ -1,0 +1,24 @@
+
+Manipualtion Image:
+convert input_file output_file : converti une image vers un autre format, regarder les options si besoin (compression...)
+mogrify : command qui effectue des opérations sur les images, overwright le fichier original 
+identify -verbose input_file : donne des infos sur le fichier
+file input_file : donne des infos sur le fichier
+convert input_file -crop sizeXxsizeY+offsetX+offsetY : crop un fichier
+convert input_file -resize 50% output_file : reduire l'image de moitie
+convert input_file -resize 1024x768 output_file : redimensionner a une taille cible
+convert input_file -rotate 90 output_file : rotation de 90 degres
+convert input_file -flip output_file : inversion verticale
+convert input_file -flop output_file : inversion horizontale
+convert input_file -colorspace Gray output_file : conversion en niveaux de gris
+convert input_file -negate output_file : inversion des couleurs
+convert input_file -blur 0x2 output_file : flou gaussien simple
+identify input_file : resume rapide (dimensions, format, poids)
+mogrify -format png *.ppm : conversion de toutes les images ppm du dossier en png
+
+
+GIMP:
+Filter : propositions de filtres applicables à l'image
+Colors->Auto->histogram : histogramme
+Filter->Edge_Detect->Laplace : dectetion des contours, Laplacien
+
