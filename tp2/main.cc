@@ -2,6 +2,7 @@
 
 #include <stdio.h>
 #include "gaussian_blur.hh"
+#include "nl_mean.hh"
 #include "image.hh"
 #include "image_io.hh"
 
@@ -18,10 +19,10 @@ int main(void)
         return 1;
     }
     
-    rgb24_image* blured = gaussian_blur(*img);
-    save_image(*blured, "blured.tga");
+    rgb24_image* denoised = nl_mean(*img);
+    save_image(*denoised, "nl_mean.tga");
 
-    delete blured;
+    delete denoised;
     delete img;
 
     return 0;
