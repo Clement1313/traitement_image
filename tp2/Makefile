@@ -1,7 +1,7 @@
 CXX = g++
-CXXFLAGS = -Wall -std=c++17 -fsanitize=address
+CXXFLAGS = -Wall -std=c++17 #-fsanitize=address
 
-SRCS = main.cc image.cpp image_io.cpp gaussian_blur.cc nl_mean.cc
+SRCS = main.cc image.cpp image_io.cpp gaussian_blur.cc nl_mean.cc selective_gaussian.cc
 OBJS = $(SRCS:.cc=.o)
 OBJS := $(OBJS:.cpp=.o)
 TARGET = tp2
