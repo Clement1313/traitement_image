@@ -121,18 +121,52 @@ namespace raw
                         size_t idx = y * sx + x;
                         double b = value[idx];
 
-                        double r_sum = 0; int r_cnt = 0;
-                        if (x > 0 && y > 0)      { r_sum += value[(y-1)*sx + (x-1)]; ++r_cnt; }
-                        if (x+1 < (size_t)sx && y > 0) { r_sum += value[(y-1)*sx + (x+1)]; ++r_cnt; }
-                        if (x > 0 && y+1 < (size_t)sy) { r_sum += value[(y+1)*sx + (x-1)]; ++r_cnt; }
-                        if (x+1 < (size_t)sx && y+1 < (size_t)sy) { r_sum += value[(y+1)*sx + (x+1)]; ++r_cnt; }
+                        double r_sum = 0;
+                        int r_cnt = 0;
+                        if (x > 0 && y > 0)
+                        {
+                            r_sum += value[(y - 1) * sx + (x - 1)];
+                            ++r_cnt;
+                        }
+                        if (x + 1 < (size_t)sx && y > 0)
+                        {
+                            r_sum += value[(y - 1) * sx + (x + 1)];
+                            ++r_cnt;
+                        }
+                        if (x > 0 && y + 1 < (size_t)sy)
+                        {
+                            r_sum += value[(y + 1) * sx + (x - 1)];
+                            ++r_cnt;
+                        }
+                        if (x + 1 < (size_t)sx && y + 1 < (size_t)sy)
+                        {
+                            r_sum += value[(y + 1) * sx + (x + 1)];
+                            ++r_cnt;
+                        }
                         double r = r_cnt ? (r_sum / r_cnt) : 0.0;
 
-                        double g_sum = 0; int g_cnt = 0;
-                        if (y > 0)              { g_sum += value[(y-1)*sx + x]; ++g_cnt; }
-                        if (y+1 < (size_t)sy)   { g_sum += value[(y+1)*sx + x]; ++g_cnt; }
-                        if (x > 0)              { g_sum += value[y*sx + (x-1)]; ++g_cnt; }
-                        if (x+1 < (size_t)sx)   { g_sum += value[y*sx + (x+1)]; ++g_cnt; }
+                        double g_sum = 0;
+                        int g_cnt = 0;
+                        if (y > 0)
+                        {
+                            g_sum += value[(y - 1) * sx + x];
+                            ++g_cnt;
+                        }
+                        if (y + 1 < (size_t)sy)
+                        {
+                            g_sum += value[(y + 1) * sx + x];
+                            ++g_cnt;
+                        }
+                        if (x > 0)
+                        {
+                            g_sum += value[y * sx + (x - 1)];
+                            ++g_cnt;
+                        }
+                        if (x + 1 < (size_t)sx)
+                        {
+                            g_sum += value[y * sx + (x + 1)];
+                            ++g_cnt;
+                        }
                         double g = g_cnt ? (g_sum / g_cnt) : 0.0;
 
                         pixels[idx] = pixel(r, g, b);
@@ -142,14 +176,32 @@ namespace raw
                         size_t idx = y * sx + x;
                         double g = value[idx];
 
-                        double r_sum = 0; int r_cnt = 0;
-                        if (x > 0)            { r_sum += value[y*sx + (x-1)]; ++r_cnt; }
-                        if (x+1 < (size_t)sx) { r_sum += value[y*sx + (x+1)]; ++r_cnt; }
+                        double r_sum = 0;
+                        int r_cnt = 0;
+                        if (x > 0)
+                        {
+                            r_sum += value[y * sx + (x - 1)];
+                            ++r_cnt;
+                        }
+                        if (x + 1 < (size_t)sx)
+                        {
+                            r_sum += value[y * sx + (x + 1)];
+                            ++r_cnt;
+                        }
                         double r = r_cnt ? (r_sum / r_cnt) : 0.0;
 
-                        double b_sum = 0; int b_cnt = 0;
-                        if (y > 0)            { b_sum += value[(y-1)*sx + x]; ++b_cnt; }
-                        if (y+1 < (size_t)sy) { b_sum += value[(y+1)*sx + x]; ++b_cnt; }
+                        double b_sum = 0;
+                        int b_cnt = 0;
+                        if (y > 0)
+                        {
+                            b_sum += value[(y - 1) * sx + x];
+                            ++b_cnt;
+                        }
+                        if (y + 1 < (size_t)sy)
+                        {
+                            b_sum += value[(y + 1) * sx + x];
+                            ++b_cnt;
+                        }
                         double b = b_cnt ? (b_sum / b_cnt) : 0.0;
 
                         pixels[idx] = pixel(r, g, b);
@@ -157,40 +209,92 @@ namespace raw
                 }
                 if (x % 2 == 1)
                 {
-                    if (y % 2 == 0) //g
+                    if (y % 2 == 0) // g
                     {
                         size_t idx = y * sx + x;
                         double g = value[idx];
 
-                        double b_sum = 0; int b_cnt = 0;
-                        if (x > 0)            { b_sum += value[y*sx + (x-1)]; ++b_cnt; }
-                        if (x+1 < (size_t)sx) { b_sum += value[y*sx + (x+1)]; ++b_cnt; }
+                        double b_sum = 0;
+                        int b_cnt = 0;
+                        if (x > 0)
+                        {
+                            b_sum += value[y * sx + (x - 1)];
+                            ++b_cnt;
+                        }
+                        if (x + 1 < (size_t)sx)
+                        {
+                            b_sum += value[y * sx + (x + 1)];
+                            ++b_cnt;
+                        }
                         double b = b_cnt ? (b_sum / b_cnt) : 0.0;
 
-                        double r_sum = 0; int r_cnt = 0;
-                        if (y > 0)            { r_sum += value[(y-1)*sx + x]; ++r_cnt; }
-                        if (y+1 < (size_t)sy) { r_sum += value[(y+1)*sx + x]; ++r_cnt; }
+                        double r_sum = 0;
+                        int r_cnt = 0;
+                        if (y > 0)
+                        {
+                            r_sum += value[(y - 1) * sx + x];
+                            ++r_cnt;
+                        }
+                        if (y + 1 < (size_t)sy)
+                        {
+                            r_sum += value[(y + 1) * sx + x];
+                            ++r_cnt;
+                        }
                         double r = r_cnt ? (r_sum / r_cnt) : 0.0;
 
                         pixels[idx] = pixel(r, g, b);
                     }
-                    else if (y % 2 == 1) //r
+                    else if (y % 2 == 1) // r
                     {
                         size_t idx = y * sx + x;
                         double r = value[idx];
 
-                        double g_sum = 0; int g_cnt = 0;
-                        if (y > 0)              { g_sum += value[(y-1)*sx + x]; ++g_cnt; }
-                        if (y+1 < (size_t)sy)   { g_sum += value[(y+1)*sx + x]; ++g_cnt; }
-                        if (x > 0)              { g_sum += value[y*sx + (x-1)]; ++g_cnt; }
-                        if (x+1 < (size_t)sx)   { g_sum += value[y*sx + (x+1)]; ++g_cnt; }
+                        double g_sum = 0;
+                        int g_cnt = 0;
+                        if (y > 0)
+                        {
+                            g_sum += value[(y - 1) * sx + x];
+                            ++g_cnt;
+                        }
+                        if (y + 1 < (size_t)sy)
+                        {
+                            g_sum += value[(y + 1) * sx + x];
+                            ++g_cnt;
+                        }
+                        if (x > 0)
+                        {
+                            g_sum += value[y * sx + (x - 1)];
+                            ++g_cnt;
+                        }
+                        if (x + 1 < (size_t)sx)
+                        {
+                            g_sum += value[y * sx + (x + 1)];
+                            ++g_cnt;
+                        }
                         double g = g_cnt ? (g_sum / g_cnt) : 0.0;
 
-                        double b_sum = 0; int b_cnt = 0;
-                        if (x > 0 && y > 0)      { b_sum += value[(y-1)*sx + (x-1)]; ++b_cnt; }
-                        if (x+1 < (size_t)sx && y > 0) { b_sum += value[(y-1)*sx + (x+1)]; ++b_cnt; }
-                        if (x > 0 && y+1 < (size_t)sy) { b_sum += value[(y+1)*sx + (x-1)]; ++b_cnt; }
-                        if (x+1 < (size_t)sx && y+1 < (size_t)sy) { b_sum += value[(y+1)*sx + (x+1)]; ++b_cnt; }
+                        double b_sum = 0;
+                        int b_cnt = 0;
+                        if (x > 0 && y > 0)
+                        {
+                            b_sum += value[(y - 1) * sx + (x - 1)];
+                            ++b_cnt;
+                        }
+                        if (x + 1 < (size_t)sx && y > 0)
+                        {
+                            b_sum += value[(y - 1) * sx + (x + 1)];
+                            ++b_cnt;
+                        }
+                        if (x > 0 && y + 1 < (size_t)sy)
+                        {
+                            b_sum += value[(y + 1) * sx + (x - 1)];
+                            ++b_cnt;
+                        }
+                        if (x + 1 < (size_t)sx && y + 1 < (size_t)sy)
+                        {
+                            b_sum += value[(y + 1) * sx + (x + 1)];
+                            ++b_cnt;
+                        }
                         double b = b_cnt ? (b_sum / b_cnt) : 0.0;
 
                         pixels[idx] = pixel(r, g, b);
